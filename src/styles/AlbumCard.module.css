@@ -1,0 +1,60 @@
+.albumCard {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 270px;
+    background-color: #212121;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    text-decoration: none;
+}
+
+.albumCard:link {
+    text-decoration: none;
+}
+
+.albumCard:visited {
+    text-decoration: none;
+}
+ 
+.preview {
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px #121212;
+}
+
+.albumCard:hover {
+    transition: 0.1s ease-in-out;
+    background-color:#535353;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.description {
+    font-size: 15px;
+    font-weight: 150;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.btn {
+    position: absolute;
+    bottom: 105px;
+    right: 20px;
+    opacity: 0;
+}
+
+.albumCard:hover .btn {
+    transition: 0.2s;
+    bottom: 120px;
+    display: initial;
+    opacity: 1;
+}

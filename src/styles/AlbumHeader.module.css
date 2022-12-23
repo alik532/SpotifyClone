@@ -1,0 +1,66 @@
+.albumHeader {
+    width: 80%;
+    background-color: rgba(0, 255, 255, 0.448);
+    color: white;
+    position: absolute;
+    height: 340px;
+    display: flex;
+    padding: 30px;
+    padding-bottom: 50px;
+    align-items: flex-end;
+    gap: 30px;
+    font-family: sans-serif;
+    background: rgb(27,18,131);
+    background: linear-gradient(180deg, rgba(27,18,131,1) 0%, rgba(27,18,131,0.5634628851540616) 100%);
+}
+
+.img {
+    width: 232px;
+    height: 232px;
+    filter: drop-shadow(5px 5px 20px black);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.title {
+    font-size: 80px;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.artist {
+    font-weight: 900;
+}
+
+
+.artist:hover {
+    text-decoration-line:underline;
+    cursor: pointer;
+}
+
+.date::before {
+    content: "•";
+    fill: white;
+    margin: 5px 5px;
+}
+
+.duration::before {
+    content: "•";
+    fill: white;
+    margin: 5px 5px;
+}
+
+.tracks::before {
+    content: "•";
+    fill: white;
+    margin: 5px 5px;
+}

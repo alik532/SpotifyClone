@@ -1,0 +1,21 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    color: white;
+    gap: 30px;
+    text-decoration: none;
+}
+
+.title {
+    color: white;
+}
+
+.list:link {
+    text-decoration: none;
+}
+
+.list:visited {
+    text-decoration: none;
+}

@@ -1,0 +1,85 @@
+.musicItem {
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+    border-radius: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 60px;
+    min-width: 80%;
+}
+
+.musicItem:hover {
+    background-color: #535353;
+    cursor: pointer;
+}
+
+.like {
+    display: none;
+    color: white;
+}
+
+.musicItem:hover .like {
+    display: initial;
+}
+
+.musicItem:hover .indx {
+    display: none;
+}
+
+.play {
+    display: none;
+    width: 30px;
+}
+
+.musicItem:hover .play {
+    display: initial;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 20%;
+}
+
+.main {
+    flex-direction: column;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.main > * {
+    margin: 0;
+    padding: 0;
+}
+
+.indx {
+    width: 30px;
+}
+
+.artist {
+    font-weight: 100;
+    font-size: 13px;
+}
+
+.preview {
+    width: 45px;
+    height: 45px;
+}
+
+.title {
+    font-size: 15px;
+}
+
+.like {
+    fill: white;
+}
+
+.album {
+    font-size: 13px;
+}
