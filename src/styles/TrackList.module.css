@@ -1,4 +1,19 @@
-.trackList {
-    width: 1300px;
+
+
+.list {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    z-index: 1;
 }
 
+.background {
+    display: block;
+    z-index: -1;
+    position: absolute;
+    top: 350px;
+    width: 100%;
+    height: 400px;
+}

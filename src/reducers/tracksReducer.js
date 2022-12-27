@@ -1,24 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import ids from '../trackIDs'
 
 const initialState = {
-    tracks: [], 
+    tracks: null, 
     status: 'idle',
     error: null,
-    selectedTrack: null,
 }
 
-export const fetchTracks = createAsyncThunk('tracks/fetchTracks', async () => {
-
+export const fetchTracks = createAsyncThunk('tracks/fetchTracks', async (id) => {
+    
     const options = {
         method: 'GET',
         url: 'https://spotify23.p.rapidapi.com/tracks/',
-        params: {ids: ids},
+        params: {ids: id},
         headers: {
-          'X-RapidAPI-Key': '21984204b7msh3267a67b6624b0ep1c87b2jsn6053aef7f9e6',
-          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'X-RapidAPI-Key': '6e02f7ad70msh20f68a0ff65e3dfp1739e7jsnadef5bc0992e',
+          'Access-Control-Allow-Origin': '*',
           'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
         }
       };
@@ -30,12 +28,7 @@ export const fetchTracks = createAsyncThunk('tracks/fetchTracks', async () => {
 export const tracksSlice = createSlice({
     name: 'tracks',
     initialState,
-    reducers: {
-        selectTrack: (state, action) => {
-            console.log(action.payload)
-            state.selectedTrack = action.payload
-        }
-    },
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(fetchTracks.pending, (state, action) => {
@@ -43,8 +36,7 @@ export const tracksSlice = createSlice({
             })
             .addCase(fetchTracks.fulfilled, (state, action) => {
                 state.status = 'succeeded'
-                console.log(action.payload)
-                state.tracks = action.payload.tracks
+                state.tracks = action.payload.tracks[0]
             })
             .addCase(fetchTracks.rejected, (state, action) => {
                 state.status = 'failed'
@@ -54,9 +46,8 @@ export const tracksSlice = createSlice({
 })
 
 export const { selectTrack } = tracksSlice.actions
-export const selectAllTracks = (state) => state.tracks.tracks
+export const getSelectedTrack = (state) => state.tracks.tracks
 export const selectTrackStatus = (state) => state.tracks.status
 export const selectTracksError = (state) => state.tracks.error
-export const getSelectedTrack = (state) => state.tracks.selectedTrack
 
 export default tracksSlice.reducer

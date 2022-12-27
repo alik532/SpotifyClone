@@ -10,21 +10,19 @@ const Home = () => {
 const dispatch = useDispatch()
     
   const albumStatus = useSelector(selectAlbumStatus)
-  console.log(albumStatus)
 
   useEffect(() => {
-    console.log('effect')
     if (albumStatus === 'idle')
       dispatch(fetchAlbums())
   }, [dispatch, albumStatus])
   
   const albums = useSelector(selectAllAlbums)
-
+  
     return (
         <div className={classes.home}>
-            <AlbumList list={albums} title="Awesome Albums"/>
-            <AlbumList list={albums} title="Awesome Albums"/>
-            <AlbumList list={albums} title="Awesome Albums"/>
+            <AlbumList list={albums.slice(0, 7)} title="Awesome Albums"/>
+            <AlbumList list={albums.slice(7, 15)} title="Awesome Albums"/>
+            <AlbumList list={albums.slice(15, 22)} title="Awesome Albums"/>
         </div>
     )
 }

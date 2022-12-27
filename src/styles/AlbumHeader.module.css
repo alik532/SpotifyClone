@@ -1,17 +1,14 @@
 .albumHeader {
-    width: 80%;
+    width: 1600px;
     background-color: rgba(0, 255, 255, 0.448);
     color: white;
-    position: absolute;
-    height: 340px;
+    height: 270px;
     display: flex;
     padding: 30px;
     padding-bottom: 50px;
     align-items: flex-end;
     gap: 30px;
     font-family: sans-serif;
-    background: rgb(27,18,131);
-    background: linear-gradient(180deg, rgba(27,18,131,1) 0%, rgba(27,18,131,0.5634628851540616) 100%);
 }
 
 .img {

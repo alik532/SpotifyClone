@@ -4,16 +4,30 @@ import Like from './UI/Like'
 import getValidDuration from '../helpers/ValidDurationTime'
 import PlayIcon from './UI/PlayIcon'
 import Equalizer from './UI/Equalizer'
+import { useDispatch } from 'react-redux'
+import { fetchTracks } from '../reducers/tracksReducer'
+import { getSelectedTrack } from '../reducers/tracksReducer'
+import { useSelector } from 'react-redux'
 
-const MusicItem = ({track, img, indx, selectedTrack, onClick}) => {
+const MusicItem = ({track, img, indx, album}) => {
 
     const validDuration = getValidDuration(track.duration_ms)
-    const isSelectedTrack = selectedTrack === track
+    const selectedTrack = useSelector(getSelectedTrack)
+    let isSelectedTrack = false
+
+    if (selectedTrack)
+        isSelectedTrack = selectedTrack.id === track.id
+
+    const dispatch = useDispatch()
+
+    const selectTrack = () => {
+        dispatch(fetchTracks(track.id))
+    }
 
     return (
         <div 
+            onClick={selectTrack}
             className={classes.musicItem} 
-            onClick={onClick}
             style={isSelectedTrack ? {color: "#1db954"} : {color: "white"}}
         >
             <div className={classes.container}>
@@ -32,7 +46,7 @@ const MusicItem = ({track, img, indx, selectedTrack, onClick}) => {
                 </div>
             </div>
             <div className={classes.album}>
-                Neffex
+                {album}
             </div>
             <div className={classes.duration}>{validDuration}</div>
         </div>

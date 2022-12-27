@@ -2,11 +2,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: #121212;
+  overflow-x: hidden;
   font-family: sans-serif;
 }
 
 ::-webkit-scrollbar {
-  border: #121212 2px solid;
+  display: none;
 }
 
 *:link {

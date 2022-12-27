@@ -6,6 +6,8 @@
     color: white;
     gap: 30px;
     text-decoration: none;
+    max-width: 1510px;
+    overflow: hidden;
 }
 
 .title {

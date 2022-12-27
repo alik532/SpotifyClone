@@ -1,5 +1,5 @@
 .musicItem {
-    background-color: #121212;
+    background-color: #12121200;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -9,12 +9,13 @@
     padding-left: 15px;
     padding-right: 15px;
     height: 60px;
-    min-width: 80%;
+    width: 1500px;
 }
 
 .musicItem:hover {
-    background-color: #535353;
+    background-color: rgba(83, 83, 83, 0.33);
     cursor: pointer;
+    transition: 0.1s;
 }
 
 .like {
@@ -37,6 +38,7 @@
 
 .musicItem:hover .play {
     display: initial;
+    transition: 0.1s;
 }
 
 .container {
