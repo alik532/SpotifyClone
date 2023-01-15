@@ -1,1 +1,1 @@
-The spotify clone App using Redux-Toolkit, axios requests from spotify API and React best practices
+The spotify clone App using React, Redux-Toolkit, axios requests from spotify API and React best practices
