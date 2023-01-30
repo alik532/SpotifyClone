@@ -6,6 +6,7 @@ import Playlist from './components/Playlist';
 import MusicPlayer from './components/MusicPlayer';
 import { getSelectedTrack } from './reducers/tracksReducer';
 import { useSelector } from 'react-redux';
+import Search from './pages/Search';
 
 function App() { 
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route exact path='/playlist/:id' element={<Playlist/>}/>    
           <Route path='/' element={<Home/>}/>
+          <Route path='/search' element={<Search/>}/>
         </Routes>
       </div>
       {selectedTrack ?  <MusicPlayer track={selectedTrack}/> : <MusicPlayer />}

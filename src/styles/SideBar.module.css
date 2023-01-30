@@ -11,6 +11,7 @@
     padding: 20px;
     font-size: 16px;
     margin-right: 200px;
+    text-decoration: none;
 }
 
 .logo {
@@ -37,4 +38,9 @@
     font-weight: 700;
     transition: 0.1s;
     cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
 }
