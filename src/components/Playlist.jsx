@@ -22,7 +22,6 @@ const Playlist = () => {
   }, [dispatch, status])
 
   let album = albums.filter(a => a.id === id)[0]
-
   return (
     <div className={classes.playlist}>
         <div className={classes.header}>

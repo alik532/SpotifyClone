@@ -1,11 +1,14 @@
 import React from 'react'
 import classes from '../../styles/UI/SearchInput.module.css'
 
-const SearchInput = () => {
+const SearchInput = ({value, onChange}) => {
+
+  console.log(value)
+
   return (
-    <div className={classes.input}>
+    <input className={classes.input} value={value} onChange={(e) => onChange(e.target.value)}>
         
-    </div>
+    </input>
   )
 }
 
