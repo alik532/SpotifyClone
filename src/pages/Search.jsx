@@ -26,7 +26,7 @@ const Search = () => {
 
     const handleChange = (value) => {
         if (value === "")
-            setFoundTracks([])
+            setFoundTracks("")
         setQuery(value)
         setFoundTracks(tracks.filter(track => track.name.toLowerCase().startsWith(query.toLowerCase())))
     }

@@ -7,6 +7,7 @@ import MusicPlayer from './components/MusicPlayer';
 import { getSelectedTrack } from './reducers/tracksReducer';
 import { useSelector } from 'react-redux';
 import Search from './pages/Search';
+import MyMedia from './pages/MyMedia';
 
 function App() { 
 
@@ -17,6 +18,7 @@ function App() {
       <SideBar/>
       <div className="App">
         <Routes>
+          <Route path='media' element={<MyMedia/>}/>
           <Route exact path='/playlist/:id' element={<Playlist/>}/>    
           <Route path='/' element={<Home/>}/>
           <Route path='/search' element={<Search/>}/>

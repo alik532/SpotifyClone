@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { fetchTracks } from '../reducers/tracksReducer'
 import { getSelectedTrack } from '../reducers/tracksReducer'
 import { useSelector } from 'react-redux'
+import { likeTrack } from '../reducers/likedReducer'
 
 const MusicItem = ({track, img, indx, album}) => {
 
@@ -23,6 +24,13 @@ const MusicItem = ({track, img, indx, album}) => {
     const selectTrack = () => {
         dispatch(fetchTracks(track.id))
     }
+
+    const like = () => {
+        let newtrack = {...track}
+        newtrack['img'] = album.images[1].url
+        dispatch(likeTrack(newtrack))
+    }
+    console.log(album)
 
     return (
         <div 
@@ -41,12 +49,12 @@ const MusicItem = ({track, img, indx, album}) => {
                     <h2 className={classes.title}>{track.name}</h2>
                     <h4 className={classes.artist}>{track.artists.map(artist => artist.name + " ")}</h4>
                 </div>
-                <div className={classes.like}>
+                <div className={classes.like} onClick={like}>
                     <Like/>
                 </div>
             </div>
             <div className={classes.album}>
-                {album}
+                {album ? album.name : null}
             </div>
             <div className={classes.duration}>{validDuration}</div>
         </div>

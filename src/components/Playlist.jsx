@@ -28,7 +28,7 @@ const Playlist = () => {
             <AlbumHeader album={album} color={album.color}/>
         </div>
         <div className={classes.list}>
-            <TrackList tracks={album.tracks.items} img={album.images[1].url} album={album.name} color={album.color}/>
+            <TrackList tracks={album.tracks.items} img={album.images[1].url} album={album} color={album.color}/>
         </div>
     </div>
   )
