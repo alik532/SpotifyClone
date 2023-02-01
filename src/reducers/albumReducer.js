@@ -8,7 +8,9 @@ const initialState = {
     error: null,
     selectedAlbum: null,
 }
-//wefwef
+
+console.log('test')
+
 export const fetchAlbums = createAsyncThunk('albums/fetchAlbums', async () => {
 
     const options = {
