@@ -19,12 +19,11 @@
 }
 
 .like {
-    display: none;
     color: white;
 }
 
 .musicItem:hover .like {
-    display: initial;
+    color: lime;
 }
 
 .musicItem:hover .indx {

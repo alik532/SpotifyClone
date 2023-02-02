@@ -5,10 +5,10 @@ import getValidDuration from '../helpers/ValidDurationTime'
 import PlayIcon from './UI/PlayIcon'
 import Equalizer from './UI/Equalizer'
 import { useDispatch } from 'react-redux'
-import { fetchTracks } from '../reducers/tracksReducer'
-import { getSelectedTrack } from '../reducers/tracksReducer'
+import { fetchTracks } from '../reducers/getTrackReducer'
+import { getSelectedTrack } from '../reducers/getTrackReducer'
 import { useSelector } from 'react-redux'
-import { likeTrack } from '../reducers/likedReducer'
+import { likeTrack } from '../reducers/albumReducer'
 
 const MusicItem = ({track, indx}) => {
 
@@ -26,7 +26,7 @@ const MusicItem = ({track, indx}) => {
     }
 
     const like = () => {
-        dispatch(likeTrack(track))
+        dispatch(likeTrack(track.id))
     }
 
     return (
@@ -47,7 +47,7 @@ const MusicItem = ({track, indx}) => {
                     <h4 className={classes.artist}>{track.artists.map(artist => artist.name + " ")}</h4>
                 </div>
                 <div className={classes.like} onClick={like}>
-                    <Like/>
+                    <Like stat={track.liked}/>
                 </div>
             </div>
             <div className={classes.album}>

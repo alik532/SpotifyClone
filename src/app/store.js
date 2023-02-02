@@ -1,13 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tracksReducer from "../reducers/tracksReducer";
+import getTrackReducer from "../reducers/getTrackReducer";
 import albumReducer from "../reducers/albumReducer";
-import likedReducer from "../reducers/likedReducer";
 
 export const store = configureStore({
     reducer: {
-        tracks: tracksReducer,
+        tracks: getTrackReducer,
         albums: albumReducer,
-        liked: likedReducer,
     }
 })
 
