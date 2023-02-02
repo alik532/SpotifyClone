@@ -18,7 +18,6 @@ const dispatch = useDispatch()
   }, [dispatch, albumStatus])
   const status = useSelector(selectAlbumStatus)
   
-  
   const albums = useSelector(selectAllAlbums)
   if (status === 'loading') {
     return (

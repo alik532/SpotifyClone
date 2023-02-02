@@ -11,7 +11,6 @@ export const likedSlice = createSlice({
     reducers: {
         likeTrack: (state, action) => {
             state.tracks.push(action.payload)
-            console.log(state.tracks)
         }
     }
 })

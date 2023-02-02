@@ -15,18 +15,13 @@ const Search = () => {
     const albums = useSelector(selectAllAlbums)
     const [foundTracks, setFoundTracks] = useState("")
     let tracks = []
-
     albums.forEach(album => {
-        tracks.push(...[...album.tracks.items].map(t => {
-            let newtrack = {...t} 
-            newtrack['img'] = album.images[1].url
-            return newtrack
-        }))
+        album.tracks.items.forEach(track => {
+            tracks.push(track)
+        })
     });
 
     const handleChange = (value) => {
-        if (value === "")
-            setFoundTracks("")
         setQuery(value)
         setFoundTracks(tracks.filter(track => track.name.toLowerCase().startsWith(query.toLowerCase())))
     }
@@ -42,7 +37,7 @@ const Search = () => {
         <div className={classes.search}>
             <SearchInput value={query} onChange={(value) => handleChange(value)}/>
             {foundTracks ? foundTracks.map((track, indx) => {
-                return <MusicItem track={track} indx={indx} key={indx} img={track['img']}/>
+                return <MusicItem track={track} indx={indx} key={indx}/>
             }
             ) : <div>Nothing found</div>}
         </div>

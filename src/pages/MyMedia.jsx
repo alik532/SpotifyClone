@@ -7,7 +7,6 @@ import MusicItem from '../components/MusicItem'
 const MyMedia = () => {
 
     const likedTracks = useSelector(selectLikedTracks)
-    console.log(likedTracks)
     return (
         <div className={classes.myMedia}>
             {likedTracks ? likedTracks.map((track, indx) =>
