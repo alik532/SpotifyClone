@@ -20,7 +20,6 @@ const dispatch = useDispatch()
   
   
   const albums = useSelector(selectAllAlbums)
-  
   if (status === 'loading') {
     return (
         <div className={classes.loading}>

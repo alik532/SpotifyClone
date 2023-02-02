@@ -20,15 +20,15 @@ const Playlist = () => {
       dispatch(fetchAlbums())
     }
   }, [dispatch, status])
-
   let album = albums.filter(a => a.id === id)[0]
+  console.log(album)
   return (
     <div className={classes.playlist}>
         <div className={classes.header}>
             <AlbumHeader album={album} color={album.color}/>
         </div>
         <div className={classes.list}>
-            <TrackList tracks={album.tracks.items} img={album.images[1].url} album={album} color={album.color}/>
+            <TrackList album={album} color={album.color}/>
         </div>
     </div>
   )

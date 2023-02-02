@@ -10,7 +10,7 @@ import { getSelectedTrack } from '../reducers/tracksReducer'
 import { useSelector } from 'react-redux'
 import { likeTrack } from '../reducers/likedReducer'
 
-const MusicItem = ({track, img, indx, album}) => {
+const MusicItem = ({track, indx}) => {
 
     const validDuration = getValidDuration(track.duration_ms)
     const selectedTrack = useSelector(getSelectedTrack)
@@ -26,11 +26,8 @@ const MusicItem = ({track, img, indx, album}) => {
     }
 
     const like = () => {
-        let newtrack = {...track}
-        newtrack['img'] = album.images[1].url
-        dispatch(likeTrack(newtrack))
+        dispatch(likeTrack(track))
     }
-    console.log(album)
 
     return (
         <div 
@@ -44,7 +41,7 @@ const MusicItem = ({track, img, indx, album}) => {
                 <div className={classes.play}><PlayIcon/></div>
                 </div>)}
                 
-                <img src={img} alt="" className={classes.preview}/>
+                <img src={track.img} alt="" className={classes.preview}/>
                 <div className={classes.main}>
                     <h2 className={classes.title}>{track.name}</h2>
                     <h4 className={classes.artist}>{track.artists.map(artist => artist.name + " ")}</h4>
@@ -54,7 +51,7 @@ const MusicItem = ({track, img, indx, album}) => {
                 </div>
             </div>
             <div className={classes.album}>
-                {album ? album.name : null}
+                {track.album}
             </div>
             <div className={classes.duration}>{validDuration}</div>
         </div>

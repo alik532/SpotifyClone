@@ -45,11 +45,10 @@ export const albumsSlice = createSlice({
             })
             .addCase(fetchAlbums.fulfilled, (state, action) => {
                 state.status = "succeeded"
-                state.albums = action.payload.albums.map(album => {return {...album, color: ["#1b1283", "#831266", "#831212", "#168312", "#9f9b13"][Math.floor(Math.random() * 4)]}})
+                state.albums = validateAlbums(action.payload.albums)
             })
             .addCase(fetchAlbums.rejected, (state, action) => {
                 state.status = 'failed'
-                console.log(action.error.message)
                 state.error = action.error.message
             })
     }
@@ -63,3 +62,15 @@ export const selectAlbumStatus = (state) => state.albums.status
 export const getSelectedAlbum = (state) => state.albums.selectedAlbum
 
 export default albumsSlice.reducer
+
+const validateAlbums = (albums) => {
+    const coloredAlbums = albums.map(album => {return {...album, color: ["#1b1283", "#831266", "#831212", "#168312", "#9f9b13"][Math.floor(Math.random() * 4)]}})
+    return coloredAlbums.map(album => {
+        album.tracks.items.map(track => {
+            let toAdd = {album: album.name, img: album.images[1].url}
+            Object.assign(track, toAdd)
+            return track
+        })
+        return album
+    })
+}
