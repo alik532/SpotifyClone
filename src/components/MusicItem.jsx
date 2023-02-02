@@ -5,11 +5,12 @@ import getValidDuration from '../helpers/ValidDurationTime'
 import PlayIcon from './UI/PlayIcon'
 import Equalizer from './UI/Equalizer'
 import { useDispatch } from 'react-redux'
-import { fetchTracks } from '../reducers/tracksReducer'
-import { getSelectedTrack } from '../reducers/tracksReducer'
+import { fetchTracks } from '../reducers/getTrackReducer'
+import { getSelectedTrack } from '../reducers/getTrackReducer'
 import { useSelector } from 'react-redux'
+import { likeTrack } from '../reducers/albumReducer'
 
-const MusicItem = ({track, img, indx, album}) => {
+const MusicItem = ({track, indx}) => {
 
     const validDuration = getValidDuration(track.duration_ms)
     const selectedTrack = useSelector(getSelectedTrack)
@@ -24,6 +25,10 @@ const MusicItem = ({track, img, indx, album}) => {
         dispatch(fetchTracks(track.id))
     }
 
+    const like = () => {
+        dispatch(likeTrack(track.id))
+    }
+
     return (
         <div 
             onClick={selectTrack}
@@ -36,17 +41,17 @@ const MusicItem = ({track, img, indx, album}) => {
                 <div className={classes.play}><PlayIcon/></div>
                 </div>)}
                 
-                <img src={img} alt="" className={classes.preview}/>
+                <img src={track.img} alt="" className={classes.preview}/>
                 <div className={classes.main}>
                     <h2 className={classes.title}>{track.name}</h2>
                     <h4 className={classes.artist}>{track.artists.map(artist => artist.name + " ")}</h4>
                 </div>
-                <div className={classes.like}>
-                    <Like/>
+                <div className={classes.like} onClick={like}>
+                    <Like stat={track.liked}/>
                 </div>
             </div>
             <div className={classes.album}>
-                {album}
+                {track.album}
             </div>
             <div className={classes.duration}>{validDuration}</div>
         </div>

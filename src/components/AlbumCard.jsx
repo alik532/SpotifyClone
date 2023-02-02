@@ -3,7 +3,7 @@ import classes from '../styles/AlbumCard.module.css'
 import GreenCircle from './UI/GreenCircle'
 import PlayIcon from './UI/PlayIcon'
 import { useSelector } from 'react-redux'
-import { getSelectedTrack, fetchTracks } from '../reducers/tracksReducer'
+import { getSelectedTrack, fetchTracks } from '../reducers/getTrackReducer'
 import PauseIcon from './UI/PauseIcon'
 import { useDispatch } from 'react-redux'
 

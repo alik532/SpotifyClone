@@ -20,7 +20,6 @@ const Playlist = () => {
       dispatch(fetchAlbums())
     }
   }, [dispatch, status])
-
   let album = albums.filter(a => a.id === id)[0]
   return (
     <div className={classes.playlist}>
@@ -28,7 +27,7 @@ const Playlist = () => {
             <AlbumHeader album={album} color={album.color}/>
         </div>
         <div className={classes.list}>
-            <TrackList tracks={album.tracks.items} img={album.images[1].url} album={album.name} color={album.color}/>
+            <TrackList album={album} color={album.color}/>
         </div>
     </div>
   )

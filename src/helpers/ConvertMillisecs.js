@@ -13,4 +13,4 @@ const getAlbumDuration = (album) => {
     return hours > 0 ? `${hours} hours ${minutes} minutes ${seconds} seconds` : `${minutes} minutes ${seconds} seconds`
   }
 
-  export default getAlbumDuration
+export default getAlbumDuration
