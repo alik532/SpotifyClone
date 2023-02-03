@@ -3,23 +3,18 @@ import classes from '../styles/Search.module.css'
 import LoadingAnimation from "../components/UI/Loading";
 import { useState } from "react";
 import SearchInput from "../components/UI/SearchInput";
-import { selectAllAlbums, selectAlbumStatus } from "../reducers/albumReducer";
+import { selectAlbumStatus } from "../reducers/albumReducer";
 import { useSelector } from "react-redux";
 import MusicItem from '../components/MusicItem'
+import { getAllTracks } from "../reducers/albumReducer";
 
 const Search = () => {
 
     const status = useSelector(selectAlbumStatus)
     
     const [query, setQuery] = useState('')
-    const albums = useSelector(selectAllAlbums)
     const [foundTracks, setFoundTracks] = useState("")
-    let tracks = []
-    albums.forEach(album => {
-        album.tracks.items.forEach(track => {
-            tracks.push(track)
-        })
-    });
+    let tracks = useSelector(getAllTracks)
 
     const handleChange = (value) => {
         setQuery(value)

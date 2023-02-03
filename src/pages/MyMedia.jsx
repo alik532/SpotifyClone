@@ -11,7 +11,7 @@ const MyMedia = () => {
     return (
         <div className={classes.myMedia}>
             {likedTracks ? likedTracks.map((track, indx) =>
-                <MusicItem track={track} indx={indx} key={indx} img={track.img}/>
+                <MusicItem track={track} indx={indx} key={indx}/>
             ) :
             null}
         </div>
