@@ -1,8 +1,8 @@
 import React from 'react'
 import classes from '../styles/MusicPlayer.module.css'
+import Like from './UI/Like'
 
 const MusicPlayer = ({track, trackPaused}) => {
-
 
     if (track) 
         return (
@@ -18,7 +18,7 @@ const MusicPlayer = ({track, trackPaused}) => {
                     <audio controls autoPlay src={track.preview_url} className={classes.audio} paused={trackPaused ? "true" : "false"}></audio>
                 </div>
                 <div className={classes.settings}>
-                    <div>icon</div>
+                    <div className={classes.like}><Like stat={track.liked}/></div>
                     <div>icon</div>
                 </div>
             </div>

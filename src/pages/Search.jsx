@@ -7,6 +7,7 @@ import { selectAlbumStatus } from "../reducers/albumReducer";
 import { useSelector } from "react-redux";
 import MusicItem from '../components/MusicItem'
 import { getAllTracks } from "../reducers/albumReducer";
+import { useEffect } from "react";
 
 const Search = () => {
 
@@ -15,6 +16,10 @@ const Search = () => {
     const [query, setQuery] = useState('')
     const [foundTracks, setFoundTracks] = useState("")
     let tracks = useSelector(getAllTracks)
+
+    useEffect(() => {
+        setFoundTracks(tracks.filter(track => track.name.toLowerCase().startsWith(query.toLowerCase())))
+    }, [tracks, query])
 
     const handleChange = (value) => {
         setQuery(value)
