@@ -27,6 +27,7 @@ export const fetchAlbums = createAsyncThunk('albums/fetchAlbums', async () => {
     return response.data
 })
 
+
 export const albumsSlice = createSlice({
     name: "albums",
     initialState,
